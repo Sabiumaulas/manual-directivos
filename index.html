@@ -22,7 +22,7 @@
     --blanco: #ffffff;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { margin: 0; padding: 0; width: 100%; height: 100%; overflow-x: hidden; }
+  html { margin: 0; padding: 0; width: 100%; height: 100%; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { font-family: 'Poppins', sans-serif; background: var(--fondo); color: var(--texto); font-size: clamp(12px, 2.4vw, 14px); line-height: 1.7; width: 100%; margin: 0; padding: 0; overflow-x: hidden; position: relative; }
 
   /* ===== PORTADA ===== */
@@ -372,15 +372,35 @@
       min-width: 170px;
     }
 
-    /* Ajuste puntual: en esta tabla la columna 'Que hace' se ve grande en movil */
+    /* Ajuste puntual: tabla de filtros de Monitoreo en movil */
+    table.guia.guia-filtros-monitoreo {
+      min-width: 700px;
+      table-layout: fixed;
+    }
+
+    table.guia.guia-filtros-monitoreo th:nth-child(1),
+    table.guia.guia-filtros-monitoreo td:nth-child(1) {
+      width: 22%;
+    }
+
     table.guia.guia-filtros-monitoreo th:nth-child(2),
     table.guia.guia-filtros-monitoreo td:nth-child(2) {
-      font-size: clamp(10px, 2.6vw, 12px);
-      line-height: 1.45;
+      width: 44%;
+      font-size: clamp(9px, 2.1vw, 11px) !important;
+      line-height: 1.35;
+    }
+
+    table.guia.guia-filtros-monitoreo th:nth-child(3),
+    table.guia.guia-filtros-monitoreo td:nth-child(3) {
+      width: 34%;
     }
   }
 
   @media (max-width: 480px) {
+    table.guia.guia-filtros-monitoreo {
+      min-width: 620px;
+    }
+
     .cover, .back-cover {
       justify-content: flex-start;
       padding-top: calc(24px + env(safe-area-inset-top, 0px)) !important;
