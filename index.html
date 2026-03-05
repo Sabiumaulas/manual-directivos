@@ -201,13 +201,24 @@
   .func-card p { font-size: clamp(11px, 2vw, 12.5px); color: var(--suave); }
 
   /* ===== TABLA ===== */
+  .tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    margin: 16px 0;
+  }
+  .tabla-scroll > table {
+    min-width: 680px;
+  }
+
   table.guia {
     width: 100%; border-collapse: collapse; margin: 16px 0;
-    border-radius: 12px; overflow-x: auto;
+    border-radius: 12px;
     box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-    display: block;
+    display: table;
   }
-  @media (min-width: 768px) { table.guia { display: table; } }
   
   table.guia thead tr { background: var(--azul); }
   table.guia th { color: var(--blanco); padding: clamp(8px, 2vw, 12px) clamp(8px, 2vw, 16px); text-align: left; font-size: clamp(10px, 2vw, 12px); font-weight: 600; letter-spacing: 0.5px; }
@@ -326,16 +337,29 @@
   }
 
   /* RESPONSIVE TABLES FOR MOBILE */
-  @media (max-width: 767px) {
-    table:not(.guia) { display: table; width: 100%; overflow-x: auto; margin: 16px 0; border: 1px solid var(--borde); border-radius: 8px; }
-    table:not(.guia) thead { display: table-header-group; }
-    table:not(.guia) tbody { display: table-row-group; }
-    table:not(.guia) tr { display: table-row; }
-    table:not(.guia) td { display: table-cell; padding: 12px; border: 1px solid var(--borde); text-align: left; word-break: break-word; white-space: normal; }
-    table:not(.guia) thead tr { background: var(--azul); }
-    table:not(.guia) thead th { color: white; padding: 12px; border: none; }
-    table:not(.guia) tbody tr:nth-child(even) td { background: var(--fondo); }
-    .guia-wrapper { overflow-x: auto; margin: 16px 0; border: 1px solid var(--borde); border-radius: 8px; }
+  @media (max-width: 768px) {
+    .tabla-scroll > table {
+      min-width: 680px;
+    }
+
+    table.guia {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    table.guia th,
+    table.guia td {
+      white-space: normal;
+      min-width: 170px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tabla-scroll > table {
+      min-width: 620px;
+    }
   }
 
   @media print {
@@ -789,8 +813,8 @@
       <h3>Configurá los filtros del reporte</h3>
     </div>
 
-    <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 16px 0;">
-     <table style="width:100%; min-width: 500px; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
+    <div class="tabla-scroll">
+     <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
           <th style="padding:14px 16px; text-align:left; font-weight:600; border-right:1px solid rgba(255,255,255,0.1); width:20%;">Filtro</th>
@@ -854,8 +878,8 @@
       <h3>Generá y revisá el reporte</h3>
     </div>
     <p>Hacé clic en <strong>GENERAR</strong>. El sistema muestra la tabla dependiendo el tipo de reporte:</p>
-    <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 16px 0;">
-    <table style="width:100%; min-width: 450px; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
+    <div class="tabla-scroll">
+    <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
           <th style="padding:14px 16px; text-align:left; font-weight:600; border-right:1px solid rgba(255,255,255,0.1); width:20%;">Tipo de Reporte</th>
@@ -908,8 +932,8 @@
       <img src="img/metricas.png" alt="Métricas" />
     </div>
     <h3 style="margin-bottom:16px; color:var(--azul); font-size:18px;">Entendé los filtros disponibles</h3>
-    <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 16px 0;">
-    <table style="width:100%; min-width: 550px; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
+    <div class="tabla-scroll">
+    <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
           <th style="padding:14px 16px; text-align:left; font-weight:600; border-right:1px solid rgba(255,255,255,0.1); width:20%;">Filtro</th>
