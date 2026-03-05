@@ -304,6 +304,17 @@
     .cover { padding: 30px 16px; }
   }
 
+  /* RESPONSIVE TABLES FOR MOBILE */
+  @media (max-width: 767px) {
+    table:not(.guia) { display: block !important; width: 100% !important; overflow-x: auto; margin: 16px 0 !important; }
+    table:not(.guia) thead { display: none; }
+    table:not(.guia) tbody tr { display: block; margin-bottom: 16px; border: 1px solid var(--borde) !important; border-radius: 8px; overflow: hidden; }
+    table:not(.guia) td { display: block !important; width: 100% !important; padding: 12px !important; border: none !important; border-bottom: 1px solid var(--borde) !important; text-align: left !important; word-break: break-word; }
+    table:not(.guia) td:first-child { border-top: 1px solid var(--borde); }
+    table:not(.guia) td:last-child { border-bottom: none !important; }
+    table:not(.guia) tr:nth-child(even) td { background: inherit !important; }
+  }
+
   @media print {
     body { background: white; }
     .cover, .toc, .page { page-break-after: always; }
@@ -1031,7 +1042,7 @@
   <div class="cover-dots"></div>
   <h2 style="font-size: 47px;">¿Tenés alguna duda?</h2>
   <p>El equipo de Sabium está disponible para acompañarte en cada paso de la implementación.</p>
-  <img src="img/LOGO.png" alt="Soporte Sabium" style="width:500px; margin-top: 0px; margin-bottom: 35px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.28)); position: relative; z-index: 10;">
+  <img src="img/LOGO.png" alt="Soporte Sabium" style="width:clamp(200px, 85vw, 500px); margin-top: 0px; margin-bottom: 35px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.28)); position: relative; z-index: 10;">
   <a class="url sabium-link" style="background-color: var(--verde); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px;" href="https://wa.me/1170668346" target="_blank" rel="noopener noreferrer">
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     WhatsApp
