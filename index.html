@@ -22,20 +22,16 @@
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { margin: 0; padding: 0; width: 100%; height: 100%; overflow-x: hidden; }
-  body { font-family: 'Poppins', sans-serif; background: var(--fondo); color: var(--texto); font-size: 14px; line-height: 1.7; width: 100%; min-width: 100vw; max-width: 100vw; margin: 0; padding: 0; overflow-x: hidden; position: relative; }
+  body { font-family: 'Poppins', sans-serif; background: var(--fondo); color: var(--texto); font-size: clamp(12px, 2.4vw, 14px); line-height: 1.7; width: 100%; margin: 0; padding: 0; overflow-x: hidden; position: relative; }
 
   /* ===== PORTADA ===== */
   .cover {
     background: linear-gradient(135deg, var(--azul) 0%, var(--azul3) 60%, var(--azul) 100%);
-    min-height: 687.31px; display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 64px; position: relative; overflow: hidden;
+    min-height: auto; display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(40px, 8vw, 80px) clamp(20px, 6vw, 64px); position: relative; overflow: hidden;
     page-break-after: always;
-    width: 100vw;
-    min-width: 100vw;
-    max-width: 100vw;
+    width: 100%;
     margin: 0;
-    left: 0;
-    right: 0;
     box-sizing: border-box;
     height: auto;
   }
@@ -48,26 +44,29 @@
   .cover-tag {
     display: inline-block;
     background: var(--salmon);
-    color: var(--blanco); font-size: 15px; font-weight: 700;
+    color: var(--blanco); font-size: clamp(12px, 2.5vw, 15px); font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
     padding: 6px 16px; border-radius: 40px;
-    margin-bottom: 28px; position: relative; z-index: 1;
+    margin-bottom: clamp(16px, 4vw, 28px); position: relative; z-index: 1;
   }
   .cover h1 {
-    font-family: 'Baloo Chettan 2', sans-serif; font-size: 100px; font-weight: 800;
-    color: var(--blanco); line-height: 0.85; max-width: 700px;
-    margin-bottom: 20px; position: relative; z-index: 1;
+    font-family: 'Baloo Chettan 2', sans-serif; font-size: clamp(32px, 8vw, 100px); font-weight: 800;
+    color: var(--blanco); line-height: 0.85; max-width: 100%;
+    margin-bottom: clamp(10px, 3vw, 20px); position: relative; z-index: 1;
   }
   .cover h1 em { font-style: normal; color: var(--verde); }
   .cover p {
-    color: rgba(255,255,255,0.6); font-size: 18px; max-width: 540px;
-    position: relative; z-index: 1; margin-bottom: 48px;
+    color: rgba(255,255,255,0.6); font-size: clamp(14px, 3vw, 18px); max-width: 100%;
+    position: relative; z-index: 1; margin-bottom: clamp(24px, 6vw, 48px);
   }
   .cover-meta {
-    display: flex; gap: 32px; position: relative; z-index: 1;
+    display: flex; flex-direction: column; gap: clamp(16px, 4vw, 32px); position: relative; z-index: 1;
   }
-  .cover-meta-item { color: rgba(255,255,255,0.5); font-size: 15px; }
-  .cover-meta-item strong { display: block; color: var(--blanco); font-size: 15px; margin-bottom: 2px; }
+  @media (min-width: 768px) {
+    .cover-meta { flex-direction: row; }
+  }
+  .cover-meta-item { color: rgba(255,255,255,0.5); font-size: clamp(12px, 2.5vw, 15px); }
+  .cover-meta-item strong { display: block; color: var(--blanco); font-size: clamp(12px, 2.5vw, 15px); margin-bottom: 2px; }
   .cover-meta-item a,
   .cover-meta-item a:visited,
   .cover-meta-item a:active {
@@ -91,7 +90,7 @@
     position: absolute;
     top: 14px;
     right: 14px;
-    width: 64px;
+    width: clamp(40px, 8vw, 64px);
     height: auto;
     z-index: 999;
     pointer-events: none;
@@ -100,33 +99,35 @@
   }
 
   /* ===== ÍNDICE ===== */
-  .toc { background: var(--blanco); padding: 64px; page-break-after: always; width: 100vw; min-width: 100vw; max-width: 100vw; margin: 0; left: 0; right: 0; position: relative; box-sizing: border-box; min-height: 687.31px; height: auto; }
-  .toc h2 { font-family: "Baloo Chettan 2", sans-serif; font-size: 45px; color: var(--azul); margin-bottom: 32px; }
-  .toc-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--borde); break-inside: avoid; page-break-inside: avoid; }
-  .toc-num { width: 46px; height: 46px; border-radius: 12px; background: var(--salmon); color: var(--blanco); font-family: "Baloo Chettan 2", sans-serif; font-size: 21px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .toc-title { font-size: 18px; font-weight: 600; color: var(--texto); flex: 1; }
-  .toc-sub { font-size: 15px; color: var(--suave); }
+  .toc { background: var(--blanco); padding: clamp(40px, 8vw, 64px); page-break-after: always; width: 100%; margin: 0; position: relative; box-sizing: border-box; min-height: auto; height: auto; }
+  .toc h2 { font-family: "Baloo Chettan 2", sans-serif; font-size: clamp(28px, 6vw, 45px); color: var(--azul); margin-bottom: clamp(20px, 4vw, 32px); }
+  .toc-item { display: flex; align-items: center; gap: 16px; padding: clamp(10px, 2vw, 14px) 0; border-bottom: 1px solid var(--borde); break-inside: avoid; page-break-inside: avoid; flex-wrap: wrap; }
+  .toc-num { width: clamp(36px, 8vw, 46px); height: clamp(36px, 8vw, 46px); border-radius: 12px; background: var(--salmon); color: var(--blanco); font-family: "Baloo Chettan 2", sans-serif; font-size: clamp(14px, 3vw, 21px); font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .toc-title { font-size: clamp(14px, 3vw, 18px); font-weight: 600; color: var(--texto); flex: 1; }
+  .toc-sub { font-size: clamp(12px, 2.5vw, 15px); color: var(--suave); }
+  
   /* ===== PÁGINA ===== */
-  .page { background: var(--blanco); padding-top: 56px; padding-bottom: 56px; padding-left: 64px; padding-right: 64px; page-break-after: always; position: relative; margin: 0 !important; width: 100vw; min-width: 100vw; max-width: 100vw; left: 0; right: 0; box-sizing: border-box; min-height: 687.31px; height: auto; }
+  .page { background: var(--blanco); padding: clamp(30px, 4vw, 56px) clamp(20px, 6vw, 64px); page-break-after: always; position: relative; margin: 0 !important; width: 100%; box-sizing: border-box; min-height: auto; height: auto; }
   .page:last-child { page-break-after: auto; }
-  .page-header { display: flex; align-items: center; gap: 14px; margin-bottom: 36px; padding-bottom: 20px; border-bottom: 2px solid var(--borde); }
-  .page-num { background: var(--salmon); color: var(--blanco); font-family: "Baloo Chettan 2", sans-serif; font-size: 18px; font-weight: 700; padding: 8px 18px; border-radius: 20px; }
-  .page-header h2 { font-family: "Baloo Chettan 2", sans-serif; font-size: 30px; font-weight: 800; color: var(--azul); flex: 1; }
-  .page-header .icon { font-size: 28px; }
+  .page-header { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(20px, 4vw, 36px); padding-bottom: 20px; border-bottom: 2px solid var(--borde); flex-wrap: wrap; }
+  .page-num { background: var(--salmon); color: var(--blanco); font-family: "Baloo Chettan 2", sans-serif; font-size: clamp(14px, 3vw, 18px); font-weight: 700; padding: 8px 18px; border-radius: 20px; flex-shrink: 0; }
+  .page-header h2 { font-family: "Baloo Chettan 2", sans-serif; font-size: clamp(20px, 4.5vw, 30px); font-weight: 800; color: var(--azul); flex: 1; }
+  .page-header .icon { font-size: clamp(20px, 4vw, 28px); }
 
   /* ===== INTRO BOX ===== */
   .intro-box {
     background: linear-gradient(135deg, var(--azul), var(--azul3));
-    border-radius: 16px; padding: 28px 32px; margin-bottom: 32px; color: var(--blanco);
+    border-radius: 16px; padding: clamp(16px, 4vw, 28px) clamp(20px, 4vw, 32px); margin-bottom: clamp(20px, 4vw, 32px); color: var(--blanco);
   }
-  .intro-box p { color: rgba(255,255,255,0.85); font-size: 15px; }
+  .intro-box p { color: rgba(255,255,255,0.85); font-size: clamp(13px, 2.5vw, 15px); }
   .intro-box strong { color: var(--blanco); }
-/* PASO */
-  .paso { margin-bottom: 36px; break-inside: avoid; page-break-inside: avoid; }
-  .paso-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-  .paso-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--salmon); color: var(--blanco); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .paso-header h3 { font-family: "Baloo Chettan 2", sans-serif; font-size: 20px; color: var(--azul); }
-  .paso p { color: var(--suave); margin-bottom: 14px; font-size: 13.5px; }
+  
+  /* PASO */
+  .paso { margin-bottom: clamp(20px, 4vw, 36px); break-inside: avoid; page-break-inside: avoid; }
+  .paso-header { display: flex; align-items: center; gap: clamp(10px, 2vw, 14px); margin-bottom: clamp(8px, 2vw, 14px); }
+  .paso-dot { width: clamp(28px, 5vw, 32px); height: clamp(28px, 5vw, 32px); border-radius: 50%; background: var(--salmon); color: var(--blanco); font-weight: 700; font-size: clamp(11px, 2.5vw, 14px); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .paso-header h3 { font-family: "Baloo Chettan 2", sans-serif; font-size: clamp(16px, 3.5vw, 20px); color: var(--azul); }
+  .paso p { color: var(--suave); margin-bottom: 14px; font-size: clamp(12px, 2.5vw, 13.5px); }
 
   /* ===== CAPTURA ===== */
   .captura {
@@ -136,28 +137,31 @@
     margin: 16px 0;
     position: relative;
   }
-  .captura img { width: 100%; display: block; }
+  .captura img { width: 100%; height: auto; display: block; }
   .captura-label {
     background: var(--azul); color: var(--blanco);
-    font-size: 11px; font-weight: 600; letter-spacing: 1px;
-    text-transform: uppercase; padding: 6px 14px;
+    font-size: clamp(9px, 2vw, 11px); font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; padding: clamp(6px, 1.5vw, 6px) clamp(8px, 2vw, 14px);
     display: flex; align-items: center; gap: 6px;
   }
 
   /* ===== CALLOUT ===== */
-  .callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; font-size: 13.5px; display: flex; align-items: flex-start; gap: 12px; break-inside: avoid; page-break-inside: avoid; }
+  .callout { border-radius: 12px; padding: clamp(12px, 3vw, 16px) clamp(16px, 3vw, 20px); margin: 16px 0; font-size: clamp(12px, 2.5vw, 13.5px); display: flex; align-items: flex-start; gap: 12px; break-inside: avoid; page-break-inside: avoid; }
   .callout.tip { background: var(--fondo); border-left: 4px solid var(--verde); color: var(--azul3); }
   .callout.warning { background: var(--fondo); border-left: 4px solid var(--acento); color: var(--azul); }
   .callout.info { background: var(--fondo); border-left: 4px solid var(--azul3); color: var(--azul); }
-  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-icon { font-size: clamp(14px, 3vw, 18px); flex-shrink: 0; margin-top: 1px; }
   .callout strong { display: block; margin-bottom: 3px; }
 
   /* BOTONES */
-  .botones-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; break-inside: avoid; page-break-inside: avoid; }
-  .boton-card { border: 1px solid var(--borde); border-radius: 12px; padding: 16px; background: var(--fondo); text-align: center; break-inside: avoid; page-break-inside: avoid; }
-  .boton-card .bc-icon { font-size: 22px; margin-bottom: 8px; display: block; }
-  .boton-card h4 { font-family: "Baloo Chettan 2", sans-serif; font-size: 14px; color: var(--azul); margin-bottom: 4px; }
-  .boton-card p { font-size: 12px; color: var(--suave); }
+  .botones-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 20px 0; break-inside: avoid; page-break-inside: avoid; }
+  @media (min-width: 768px) { .botones-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .botones-grid { grid-template-columns: repeat(3, 1fr); } }
+  
+  .boton-card { border: 1px solid var(--borde); border-radius: 12px; padding: clamp(12px, 2vw, 16px); background: var(--fondo); text-align: center; break-inside: avoid; page-break-inside: avoid; }
+  .boton-card .bc-icon { font-size: clamp(16px, 3vw, 22px); margin-bottom: clamp(6px, 1vw, 8px); display: block; }
+  .boton-card h4 { font-family: "Baloo Chettan 2", sans-serif; font-size: clamp(12px, 2.5vw, 14px); color: var(--azul); margin-bottom: 4px; }
+  .boton-card p { font-size: clamp(10px, 2vw, 12px); color: var(--suave); }
   .boton-card.naranja {
     border-color: #ff7c30;
     background: linear-gradient(145deg, #ff9f66 0%, #ff8e4b 55%, #ff7c30 100%);
@@ -168,43 +172,53 @@
   .boton-card.gris h4 { color: var(--borde); }
 
   /* ===== GRID FUNCIONES ===== */
-  .func-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .func-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 20px 0; }
+  @media (min-width: 768px) { .func-grid { grid-template-columns: 1fr 1fr; } }
+  
   .func-card {
-    border: 1px solid var(--borde); border-radius: 14px; padding: 20px;
+    border: 1px solid var(--borde); border-radius: 14px; padding: clamp(14px, 3vw, 20px);
     background: var(--fondo);
   }
-  .func-card .fc-icon { font-size: 24px; margin-bottom: 8px; display: block; }
-  .func-card h4 { font-family: 'Baloo Chettan 2', sans-serif; font-size: 14px; color: var(--azul); margin-bottom: 6px; }
-  .func-card p { font-size: 12.5px; color: var(--suave); }
+  .func-card .fc-icon { font-size: clamp(18px, 3vw, 24px); margin-bottom: 8px; display: block; }
+  .func-card h4 { font-family: 'Baloo Chettan 2', sans-serif; font-size: clamp(12px, 2.5vw, 14px); color: var(--azul); margin-bottom: 6px; }
+  .func-card p { font-size: clamp(11px, 2vw, 12.5px); color: var(--suave); }
 
   /* ===== TABLA ===== */
   table.guia {
     width: 100%; border-collapse: collapse; margin: 16px 0;
-    border-radius: 12px; overflow: hidden;
+    border-radius: 12px; overflow-x: auto;
     box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    display: block;
   }
+  @media (min-width: 768px) { table.guia { display: table; } }
+  
   table.guia thead tr { background: var(--azul); }
-  table.guia th { color: var(--blanco); padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; }
-  table.guia td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--borde); }
+  table.guia th { color: var(--blanco); padding: clamp(8px, 2vw, 12px) clamp(8px, 2vw, 16px); text-align: left; font-size: clamp(10px, 2vw, 12px); font-weight: 600; letter-spacing: 0.5px; }
+  table.guia td { padding: clamp(8px, 2vw, 12px) clamp(8px, 2vw, 16px); font-size: clamp(11px, 2vw, 13px); border-bottom: 1px solid var(--borde); }
   table.guia tr:last-child td { border-bottom: none; }
   table.guia tr:nth-child(even) td { background: #FAFBFC; }
 
- /* ES/NO */
-  .esno-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 16px; overflow: hidden; margin: 20px 0; border: 1px solid var(--borde); box-shadow: 0 8px 24px color-mix(in srgb, var(--azul) 12%, transparent); break-inside: avoid; page-break-inside: avoid; }
-  .esno-col { padding: 30px 30px; }
-  .esno-col.si { background: linear-gradient(155deg, color-mix(in srgb, var(--borde) 75%, var(--suave)) 0%, var(--borde) 58%, color-mix(in srgb, var(--borde) 70%, var(--blanco)) 100%); border-right: 1px solid rgba(0,0,0,0.08); }
+  /* ES/NO */
+  .esno-grid { display: grid; grid-template-columns: 1fr; gap: 0; border-radius: 16px; overflow: hidden; margin: 20px 0; border: 1px solid var(--borde); box-shadow: 0 8px 24px color-mix(in srgb, var(--azul) 12%, transparent); break-inside: avoid; page-break-inside: avoid; }
+  @media (min-width: 768px) { .esno-grid { grid-template-columns: 1fr 1fr; } }
+  
+  .esno-col { padding: clamp(20px, 4vw, 30px); }
+  .esno-col.si { background: linear-gradient(155deg, color-mix(in srgb, var(--borde) 75%, var(--suave)) 0%, var(--borde) 58%, color-mix(in srgb, var(--borde) 70%, var(--blanco)) 100%); }
+  @media (min-width: 768px) { .esno-col.si { border-right: 1px solid rgba(0,0,0,0.08); } }
+  
   .esno-col.no { background: linear-gradient(155deg, color-mix(in srgb, var(--borde) 78%, var(--suave)) 0%, var(--borde) 58%, color-mix(in srgb, var(--borde) 82%, var(--blanco)) 100%); }
+  
   .esno-col h3 {
     font-family: "Baloo Chettan 2", sans-serif;
-    font-size: 25px;
+    font-size: clamp(18px, 4vw, 25px);
     font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin: -30px -30px 18px -30px;
+    margin: calc(-1 * clamp(20px, 4vw, 30px)) calc(-1 * clamp(20px, 4vw, 30px)) clamp(12px, 3vw, 18px) calc(-1 * clamp(20px, 4vw, 30px));
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 16px 20px;
+    padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 20px);
     border-radius: 0;
   }
   .esno-col.si h3 {
@@ -227,7 +241,7 @@
     font-size: 20px;
     font-weight: 900;
   }
-  .esno-item { display: grid; grid-template-columns: 16px 1fr; align-items: start; gap: 10px; margin-bottom: 12px; font-size: 15px; line-height: 1.55; }
+  .esno-item { display: grid; grid-template-columns: 16px 1fr; align-items: start; gap: 10px; margin-bottom: 12px; font-size: clamp(13px, 2.5vw, 15px); line-height: 1.55; }
   .esno-item::before { font-size: 12px; margin-top: 2px; font-weight: 800; }
   .esno-col.si .esno-item::before { content: "✓"; color: color-mix(in srgb, var(--azul) 85%, var(--blanco)); }
   .esno-col.no .esno-item::before { content: "✕"; color: color-mix(in srgb, var(--azul) 80%, var(--blanco)); }
@@ -235,33 +249,58 @@
   .esno-col.no .esno-item { color: color-mix(in srgb, var(--azul) 90%, transparent); }
 
   /* ICONOS ESTADOS */
-  .estados-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
-  .estado-card { border: 1px solid var(--borde); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; }
-  .estado-card .ec-icon { font-size: 20px; flex-shrink: 0; line-height: 1.3; margin-top: 1px; }
-  .estado-card h4 { font-size: 13px; font-weight: 600; color: var(--texto); margin-bottom: 2px; }
-  .estado-card p { font-size: 12px; color: var(--suave); }
+  .estados-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 16px 0; }
+  @media (min-width: 768px) { .estados-grid { grid-template-columns: 1fr 1fr; } }
+  
+  .estado-card { border: 1px solid var(--borde); border-radius: 10px; padding: clamp(10px, 2vw, 14px) clamp(12px, 2vw, 16px); display: flex; gap: 12px; align-items: flex-start; }
+  .estado-card .ec-icon { font-size: clamp(16px, 3vw, 20px); flex-shrink: 0; line-height: 1.3; margin-top: 1px; }
+  .estado-card h4 { font-size: clamp(12px, 2.5vw, 13px); font-weight: 600; color: var(--texto); margin-bottom: 2px; }
+  .estado-card p { font-size: clamp(11px, 2vw, 12px); color: var(--suave); }
 
   /* ===== FOOTER ===== */
   .page-footer {
-    position: absolute; bottom: 20px; left: 64px; right: 64px;
-    display: flex; justify-content: space-between; align-items: center;
+    position: static; margin-top: 40px;
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-start;
     border-top: 1px solid var(--borde); padding-top: 10px;
-    font-size: 11px; color: var(--suave);
+    font-size: 9px; color: var(--suave);
+  }
+  @media (min-width: 768px) {
+    .page-footer { flex-direction: row; justify-content: space-between; font-size: 11px; position: absolute; bottom: 20px; left: clamp(20px, 6vw, 64px); right: clamp(20px, 6vw, 64px); margin-top: 0; }
   }
 
   /* ===== CONTRAPORTADA ===== */
   .back-cover {
-    background: var(--azul); padding: 80px 64px;
-    min-height: 60vh; display: flex; flex-direction: column;
+    background: var(--azul); padding: clamp(40px, 8vw, 80px) clamp(20px, 6vw, 64px);
+    min-height: auto; display: flex; flex-direction: column;
     justify-content: center; align-items: center; text-align: center;
     position: relative; overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
   }
-  .back-cover h2 { font-family: 'Baloo Chettan 2', sans-serif; font-size: 40px; color: var(--blanco); margin-bottom: 16px; }
-  .back-cover p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 32px; max-width: 400px; }
+  .back-cover h2 { font-family: 'Baloo Chettan 2', sans-serif; font-size: clamp(28px, 6vw, 54px); color: var(--blanco); margin-bottom: clamp(12px, 3vw, 16px); }
+  .back-cover p { color: rgba(255,255,255,0.6); font-size: clamp(13px, 3vw, 16px); margin-bottom: clamp(20px, 5vw, 32px); max-width: 100%; }
   .back-cover .url {
     background: var(--acento); color: var(--blanco);
-    font-size: 16px; font-weight: 600; padding: 14px 32px; border-radius: 40px;
+    font-size: clamp(13px, 3vw, 16px); font-weight: 600; padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 32px); border-radius: 40px;
     position: relative; z-index: 10; cursor: pointer;
+  }
+
+  /* RESPONSIVE MEDIA QUERIES */
+  @media (max-width: 767px) {
+    .toc-item { flex-wrap: wrap; }
+    .paso { margin-bottom: 20px; }
+    .paso-header { gap: 8px; }
+    .callout { padding: 12px 14px; font-size: 12px; gap: 10px; }
+    .callout-icon { font-size: 14px; }
+    .boton-card { padding: 10px; }
+    .boton-card .bc-icon { font-size: 16px; margin-bottom: 4px; }
+    .boton-card h4 { font-size: 11px; }
+    .boton-card p { font-size: 9px; }
+    .intro-box { padding: 12px 16px; margin-bottom: 20px; }
+    .intro-box p { font-size: 12px; }
+    .page { padding: 20px 16px; }
+    .toc { padding: 20px 16px; }
+    .cover { padding: 30px 16px; }
   }
 
   @media print {
