@@ -283,7 +283,8 @@
     min-height: auto; display: flex; flex-direction: column;
     justify-content: center; align-items: center; text-align: center;
     position: relative; overflow: hidden;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     box-sizing: border-box;
   }
   .back-cover h2 { font-family: 'Baloo Chettan 2', sans-serif; font-size: clamp(28px, 6vw, 54px); color: var(--blanco); margin-bottom: clamp(12px, 3vw, 16px); }
@@ -311,7 +312,7 @@
     .page { padding: 20px 16px; }
     .toc { padding: 20px 16px; }
     .cover { padding: 30px 16px; }
-    .back-cover { padding: 30px 16px !important; }
+    .back-cover { padding: 30px 16px !important; width: 100% !important; margin-left: 0 !important; }
     .back-cover h2 { font-size: clamp(24px, 5vw, 40px); }
   }
 
