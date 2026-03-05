@@ -45,10 +45,10 @@
   .cover-tag {
     display: inline-block;
     background: var(--salmon);
-    color: var(--blanco); font-size: clamp(12px, 2.5vw, 15px); font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 6px 16px; border-radius: 40px;
-    margin-bottom: clamp(16px, 4vw, 28px); position: relative; z-index: 1;
+    color: var(--blanco); font-size: clamp(11px, 2vw, 13px); font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 40px;
+    margin-bottom: clamp(12px, 3vw, 20px); position: relative; z-index: 1;
   }
   .cover h1 {
     font-family: 'Baloo Chettan 2', sans-serif; font-size: clamp(32px, 8vw, 100px); font-weight: 800;
@@ -95,7 +95,7 @@
     height: auto;
     z-index: 5;
     pointer-events: none;
-    opacity: 0.85;
+    opacity: 1;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
   }
   @media (max-width: 480px) {
@@ -103,7 +103,7 @@
       width: 32px;
       top: 12px;
       right: 12px;
-      opacity: 0.75;
+      opacity: 0.95;
     }
   }
 
@@ -296,7 +296,8 @@
 
   /* RESPONSIVE MEDIA QUERIES */
   @media (max-width: 767px) {
-    .toc-item { flex-wrap: wrap; }
+    .toc-item { flex-wrap: wrap; flex-direction: column; align-items: flex-start; }
+    .toc-num { align-self: flex-start; margin-bottom: 12px; }
     .paso { margin-bottom: 20px; }
     .paso-header { gap: 8px; }
     .callout { padding: 12px 14px; font-size: 12px; gap: 10px; }
@@ -310,6 +311,8 @@
     .page { padding: 20px 16px; }
     .toc { padding: 20px 16px; }
     .cover { padding: 30px 16px; }
+    .back-cover { padding: 30px 16px !important; }
+    .back-cover h2 { font-size: clamp(24px, 5vw, 40px); }
   }
 
   /* RESPONSIVE TABLES FOR MOBILE */
@@ -777,7 +780,7 @@
     </div>
 
     <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 16px 0;">
-     <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
+     <table style="width:100%; min-width: 500px; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
           <th style="padding:14px 16px; text-align:left; font-weight:600; border-right:1px solid rgba(255,255,255,0.1); width:20%;">Filtro</th>
@@ -842,7 +845,7 @@
     </div>
     <p>Hacé clic en <strong>GENERAR</strong>. El sistema muestra la tabla dependiendo el tipo de reporte:</p>
     <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 16px 0;">
-    <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
+    <table style="width:100%; min-width: 450px; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
           <th style="padding:14px 16px; text-align:left; font-weight:600; border-right:1px solid rgba(255,255,255,0.1); width:20%;">Tipo de Reporte</th>
@@ -896,7 +899,7 @@
     </div>
     <h3 style="margin-bottom:16px; color:var(--azul); font-size:18px;">Entendé los filtros disponibles</h3>
     <div style="overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; margin: 16px 0;">
-    <table style="width:100%; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
+    <table style="width:100%; min-width: 550px; border-collapse:collapse; background:var(--blanco); border:none; overflow:hidden;">
       <thead style="background:var(--azul); color:var(--blanco);">
         <tr>
           <th style="padding:14px 16px; text-align:left; font-weight:600; border-right:1px solid rgba(255,255,255,0.1); width:20%;">Filtro</th>
