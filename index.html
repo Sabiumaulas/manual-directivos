@@ -303,8 +303,22 @@
     justify-content: center; align-items: center; text-align: center;
     position: relative; overflow: hidden;
     width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    max-width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     box-sizing: border-box;
+  }
+  .back-logo {
+    width: min(500px, 100%);
+    max-width: 100%;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 35px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.28));
+    position: relative;
+    z-index: 10;
   }
   .back-cover h2 { font-family: 'Baloo Chettan 2', sans-serif; font-size: clamp(28px, 6vw, 54px); color: var(--blanco); margin-bottom: clamp(12px, 3vw, 16px); }
   .back-cover p { color: rgba(255,255,255,0.6); font-size: clamp(13px, 3vw, 16px); margin-bottom: clamp(20px, 5vw, 32px); max-width: 100%; }
@@ -332,7 +346,10 @@
     .page { padding: 20px 16px; }
     .toc { padding: 20px 16px; }
     .cover { padding: 30px 16px; }
-    .back-cover { padding: 30px 16px !important; width: 100% !important; margin-left: 0 !important; }
+    .cover, .back-cover {
+      justify-content: flex-start;
+      padding-top: calc(40px + env(safe-area-inset-top, 0px)) !important;
+    }
     .back-cover h2 { font-size: clamp(24px, 5vw, 40px); }
   }
 
@@ -357,6 +374,21 @@
   }
 
   @media (max-width: 480px) {
+    .cover, .back-cover {
+      justify-content: flex-start;
+      padding-top: calc(24px + env(safe-area-inset-top, 0px)) !important;
+    }
+
+    .back-cover h2 {
+      font-size: clamp(28px, 12vw, 40px);
+    }
+
+    .back-cover .url {
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
+    }
+
     .tabla-scroll > table {
       min-width: 620px;
     }
@@ -980,6 +1012,7 @@
       </tbody>
     </table>
     </div>
+  </div>
 
   <div class="paso">
     <div class="paso-header">
@@ -1092,9 +1125,9 @@
 <!-- CONTRAPORTADA -->
 <div class="back-cover">
   <div class="cover-dots"></div>
-  <h2 style="font-size: 47px;">¿Tenés alguna duda?</h2>
+  <h2>¿Tenés alguna duda?</h2>
   <p>El equipo de Sabium está disponible para acompañarte en cada paso de la implementación.</p>
-  <img src="img/LOGO.png" alt="Soporte Sabium" style="width:clamp(200px, 85vw, 500px); margin-top: 0px; margin-bottom: 35px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.28)); position: relative; z-index: 10;">
+  <img class="back-logo" src="img/LOGO.png" alt="Soporte Sabium">
   <a class="url sabium-link" style="background-color: var(--verde); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px;" href="https://wa.me/1170668346" target="_blank" rel="noopener noreferrer">
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     WhatsApp
