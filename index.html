@@ -371,6 +371,13 @@
       white-space: normal;
       min-width: 170px;
     }
+
+    /* Ajuste puntual: en esta tabla la columna 'Que hace' se ve grande en movil */
+    table.guia.guia-filtros-monitoreo th:nth-child(2),
+    table.guia.guia-filtros-monitoreo td:nth-child(2) {
+      font-size: clamp(10px, 2.6vw, 12px);
+      line-height: 1.45;
+    }
   }
 
   @media (max-width: 480px) {
@@ -606,7 +613,7 @@
       <h3>Usá los filtros para encontrar lo que buscás</h3>
     </div>
     <p>Los filtros te permiten acotar la búsqueda por múltiples criterios. Podés combinarlos según lo que necesites ver.</p>
-    <table class="guia">
+    <table class="guia guia-filtros-monitoreo">
       <thead><tr><th>Filtro</th><th>Qué hace</th><th>Ejemplo de uso</th></tr></thead>
       <tbody>
         <tr><td><strong>Nivel</strong></td><td>Filtra por nivel educativo</td><td>Secundario, Primario, Inicial</td></tr>
